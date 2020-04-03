@@ -1,0 +1,193 @@
+*,*::before,*::after {
+	box-sizing: inherit;
+}
+html {
+	box-sizing: border-box;	
+}
+html,body {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background-image: url(../images/font.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+/* Styles for the deck of cards*/
+.deck {
+	width: 85%;
+	padding: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 auto;
+}
+.deck .card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 3rem;
+	width: 3rem;
+	margin: 0.2rem 0.2rem;
+	background: #333038;;
+	font-size: 0;
+	color: #ffffff;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.deck .card.open {
+	transform: rotateY(0);
+	background: #0cb5f8;
+	cursor: default;
+	animation-name: flipInY;
+	animation-duration: .75s;
+}
+.deck .card.show {
+	font-size: 40px;
+}
+.deck .card.match {
+	cursor: default;
+	background: #4bc03c;
+	font-size: 33px;
+	animation-name: rubberBand;
+	animation-duration: .75s;
+}
+.deck .card.unmatched {
+	animation-name: pulse;
+	animation-duration: .75s;
+	background: #e60940;
+}
+.disabled {
+	pointer-events: none !important;
+	cursor: default !important;
+}
+/* Styles for congratulations modal*/
+#popup2, #popup1 {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 60%;
+	height: 55%;
+	margin: 70px auto;
+	padding: 10px;
+	border-radius: 5px;
+	background: #1b1212ec;
+	transition: all 5s ease-in-out;
+}
+h2{
+	color: #eeb0b0;
+	font-size: 60px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	text-align: center;
+}
+p {
+	color: #e4c8c8;
+	font-size: 35px;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	text-align: center;
+	margin: 25px 0;
+}
+span {
+	color: #f8ef72;
+}
+.hide {
+	display: none !important;
+}
+#play-again,#start {
+	color: #e4c8c8;
+	padding: 16px;
+	border: #e4c8c8 solid 5px;
+	font-size: 25px;
+	font-weight: bold;
+	display: block;
+	margin: 0 auto;
+	width: 30%;
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	background-color:#201d14;
+	border-radius: 5px;
+	cursor: pointer;
+}
+/* Animations */
+@keyframes flipInY {
+	from {
+		transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+		animation-timing-function: ease-in;
+	}
+	40% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+		animation-timing-function: ease-in;
+	}
+	60% {
+		transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+	}
+	80% {
+		transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+	}
+	to {
+		transform: perspective(400px);
+	}
+}
+@keyframes rubberBand {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+	65% {
+		transform: scale3d(.95, 1.05, 1);
+	}
+	75% {
+		transform: scale3d(1.05, .95, 1);
+	}
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+@keyframes pulse {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+	50% {
+		transform: scale3d(1.2, 1.2, 1.2);
+	}
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+/* Media queries */
+@media (max-width: 320px) {
+	.deck {
+		width: 85%;
+	}
+	.deck .card {
+		height: 4.7rem;
+		width: 4.7rem;
+	}
+}
+/* For Tablets and larger screens */
+@media (min-width: 768px) {
+	.deck {
+		width: 660px;
+		height: 680px;
+	}
+	.deck .card {
+		height: 125px;
+		width: 125px;
+	}
+	.popup1 {
+		width: 60%;
+	}
+}
+

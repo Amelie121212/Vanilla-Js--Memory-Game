@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>JS Game</title>
+        <meta name="description" content="JS Game">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <audio id="song" src="audio/song.mp3" type="audio/mpeg" autoplay loop></audio>
+        <div id="popup1">
+            <h2>&#128062 Memory Game &#128062</h2>
+            <h2><span id="countdown"></span></h2>
+            <button id="start" onclick="getReady()">Start</button>
+        </div>
+        <ul class="deck disabled" id="card-deck">
+            <li class="card" type="rabbit">&#128007</li>
+            <li class="card" type="cat">&#128008</li>
+            <li class="card" type="mouse">&#128001</li>
+            <li class="card" type="monkey" >&#128018</li>
+            <li class="card" type="bee">&#128029</li>
+            <li class="card" type="mouse">&#128001</li>
+            <li class="card" type="chick">&#128037</li>
+            <li class="card" type="fish">&#128032</li>
+            <li class="card" type="rabbit">&#128007</li>
+            <li class="card" type="squirrel">&#128063</li>
+            <li class="card" type="chick">&#128037</li>
+            <li class="card" type="squirrel">&#128063</li>
+            <li class="card" type="monkey">&#128018</li>
+            <li class="card" type="fish">&#128032</li>
+            <li class="card" type="cat">&#128008</li>
+            <li class="card" type="bee">&#128029</li>
+        </ul>
+        <div id="popup2" class="hide">
+            <h2>&#127881 Congratulations &#127881</h2>
+            <p>You made <span id="finalMove"> </span> moves in <span id="totalTime"> </span> </p>
+            <button id="play-again" onclick="playAgain()">Play Again</button>
+        </div>
+        <script src="js/app.js"></script>
+    </body>
+</html>
